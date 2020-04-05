@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:12-alpine
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=goBarber
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=123456
+  mongo:
+    image: mongo
+    environment:
+      - MONGODB_DATABASE=goBarber
+      - MONGODB_USERNAME=123456
+      - MONGODB_PASSWORD=test123
+    ports:
+      - '27017:27017'
+  redis:
+    image: redis:alpine
+    ports:
+      - '6379:6379'
+  test_db:
+    image: postgres:12-alpine
+    environment:
+      - POSTGRES_DB=goBarberTest
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=123456
